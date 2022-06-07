@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/soap/UserManagement" targetNamespace="http://spring.io/soap/UserManagement" elementFormDefault="qualified">
+
+    <xs:element name="UserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:sequence>
+                    <xs:element name="user" type="tns:User" />
+                </xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"  />
+            <xs:element name="tel" type="xs:string" />
+            <xs:element name="email" type="xs:string" />
+            <xs:element name="code" type="xs:string" />
+            <xs:element name="auth" type="tns:AuthInformation"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AuthInformation">
+        <xs:sequence>
+            <xs:element name="authDate" type="xs:string" />
+            <xs:element name="authHour" type="xs:string" />
+            <xs:element name="authAttempts" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
